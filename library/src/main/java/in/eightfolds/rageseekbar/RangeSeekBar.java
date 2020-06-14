@@ -29,6 +29,7 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -138,6 +139,7 @@ public class RangeSeekBar<T extends Number> extends ImageView {
 
     private boolean activateOnDefaultValues;
 
+    private Typeface typeface;
 
     public RangeSeekBar(Context context) {
         super(context);
@@ -614,6 +616,10 @@ public class RangeSeekBar<T extends Number> extends ImageView {
         paint.setStyle(Style.FILL);
         paint.setColor(defaultColor);
         paint.setAntiAlias(true);
+        if(typeface!=null){
+            paint.setTypeface(typeface);
+        }
+
         float minMaxLabelSize = 0;
 
         if (showLabels) {
@@ -869,6 +875,11 @@ public class RangeSeekBar<T extends Number> extends ImageView {
      */
     private enum Thumb {
         MIN, MAX
+    }
+
+    public void setTypeface(Typeface typeface){
+        this.typeface=typeface;
+        invalidate();
     }
 
     /**
