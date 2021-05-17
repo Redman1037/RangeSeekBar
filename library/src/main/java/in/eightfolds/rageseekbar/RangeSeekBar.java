@@ -398,6 +398,7 @@ public class RangeSeekBar<T extends Number> extends ImageView {
      * @return The currently selected max value.
      */
     public T getSelectedMaxValue() {
+
         return roundOffValueToStep(normalizedToValue(normalizedMaxValue));
     }
 
